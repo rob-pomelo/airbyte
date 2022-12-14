@@ -12,6 +12,7 @@ import { BuilderStream } from "../types";
 import { BuilderCard } from "./BuilderCard";
 import { BuilderField } from "./BuilderField";
 import { BuilderTitle } from "./BuilderTitle";
+import { KeyValueListField } from "./KeyValueListField";
 import styles from "./StreamConfigView.module.scss";
 
 interface StreamConfigViewProps {
@@ -75,6 +76,23 @@ export const StreamConfigView: React.FC<StreamConfigViewProps> = ({ streamNum })
           path={streamFieldPath("fieldPointer")}
           label="Field Pointer"
           tooltip="Pointer into the response that should be extracted as the final record"
+        />
+      </BuilderCard>
+      <BuilderCard>
+        <KeyValueListField
+          path={streamFieldPath("requestOptions.requestParameters")}
+          label="Request Parameters"
+          tooltip="Parameters to attach to API requests"
+        />
+        <KeyValueListField
+          path={streamFieldPath("requestOptions.requestHeaders")}
+          label="Request Headers"
+          tooltip="Headers to attach to API requests"
+        />
+        <KeyValueListField
+          path={streamFieldPath("requestOptions.requestBody")}
+          label="Request Body"
+          tooltip="Body to attach to API requests"
         />
       </BuilderCard>
     </div>
